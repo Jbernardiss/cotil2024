@@ -12,13 +12,13 @@ class MyTop5Songs extends StatelessWidget {
       backgroundColor: Colors.black,
       appBar: AppBar(
         title: Text('Top 5 Songs'),
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.grey.shade900,
         foregroundColor: Colors.white,
       ),
       body: Center(child: Column(children: [
-        Text('Vultures', style: TextStyle(color: Colors.white)),
-        Text('Sweet Child of Mine', style: TextStyle(color: Colors.white)),
-        Text('Smells Like Teen Spirit', style: TextStyle(color: Colors.white)),
+        Text('Vultures', style: TextStyle(color: Colors.white, fontSize: 48)),
+        Text('Sweet Child of Mine', style: TextStyle(color: Colors.white, decoration: TextDecoration.underline, decorationStyle: TextDecorationStyle.wavy, decorationColor: Colors.white),
+        Text('Smells Like Teen Spirit', style: TextStyle(color: Colors.white, fontSize: 42, )),
       ],)),
     );
   }
