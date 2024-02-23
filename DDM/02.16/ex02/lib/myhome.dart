@@ -19,7 +19,7 @@ class MyHome extends StatelessWidget {
         Text("Rato", style: TextStyle(backgroundColor: Colors.orange, fontSize: 30),),
         SizedBox(height: 20,),
         Text("Arábico", style: TextStyle(backgroundColor: Colors.amber.shade600, fontSize: 30),),
-        SizedBox(height: 20,),
+        SizedBox(height: 20,),c kn 
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
