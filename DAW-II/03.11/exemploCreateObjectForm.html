@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2>Cadastro de Curso</h2>
+
+    <form action="">
+        Sigla: <br>
+        <input type="text" name="sigla" id="sigla">
+        <br><br>
+
+        Nome do Curso: <br>
+        <input type="text" name="nome" id="nome">
+
+        <input type="button" value="Cadastrar" onclick="cadastrarCurso()">
+    </form>
+    <hr>
+    <table border="1" width="30%" id="tabelaCursos">
+        <tr>
+            <th>Sigla</th>
+            <th>Nome</th>
+        </tr>
+    </table>
+    Fim!
+</body>
+<script>
+
+    function cadastrarCurso() {
+        let curso = {
+            sigla: document.getElementById("sigla").value,
+            nome: document.getElementById("nome").value
+        }
+    
+        let tabela = document.getElementById("tabelaCursos");
+    
+        let novaLinha = document.createElement('tr');
+    
+        novaLinha.insertCell(0).innerHTML = curso.sigla;
+        novaLinha.insertCell(1).innerHTML = curso.nome;
+        tabela.appendChild(novaLinha);
+    
+        document.getElementById("sigla").value = "";
+        document.getElementById("nome").value = "";
+    }
+
+    
+</script>
+</html>

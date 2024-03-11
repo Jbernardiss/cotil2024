@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validação de formulário</title>
+</head>
+<body>
+    <h1>Faça seu cadastro</h1>
+    <div id="msg"></div>
+
+    <form method="post" name="dados" id="dados" onsubmit="return enviarDados()">
+        Pessoa física
+        <input type="radio" name="tipo" id="pf" value="pf" checked>
+        Pessoa jurídica
+        <input type="radio" name="tipo" id="pj" value="pj">
+        <br>
+        <div id="cpf">
+            <br>
+            CPF: <br>
+            <input type="text" name="tx_cpf" id="tx_cpf" size="20" maxlength="14">
+
+            <br>
+            Nome completo: <br>
+            <input type="text" name="tx_nome" id="tx_nome" size="52" maxlength="50"> 
+        </div>
+
+        <div id="cnpj">
+            <br>
+            CNPJ: <br>
+            <input type="text" name="tx_cnpj" id="tx_cnpj" size="20" maxlength="18">
+
+            <br>
+            Razão Social: <br>
+            <input type="text" name="tx_rz" id="tx_rz" size="52" maxlength="50">
+        </div>
+
+        <br>
+            Email: <br>
+            <input type="email" name="tx_email" id="tx+email" size="52" maxlength="50">
+
+            <br>
+            Mensagem: <br>
+            <textarea name="tx_mensagem" id="tx_mensagem" cols="53" rows="8"></textarea>
+            <br> <br>
+            <input type="submit" name="submit" value="Enviar Dados">
+            <input type="reset" name="reset" id="reset" value="Redefinir">
+
+
+    </form>
+</body>
+<script>
+    function enviarDados(){
+        if((document.dados.tipo.value == 'pf') && (document.dados.tx_nome.value == "" || document.dados.tx_nome.value.lenght<8)){
+            formataMSG("Preencha o campo NOME corretamente");
+            document.dados.tx_nome.focus();
+            return false;
+        }
+        if((document.dados.tipo.value == 'pj') && (document.dados.tx_rz.value == "" || document.dados.tx_rz.value.lenght<8)){
+            formataMSG("Preencha o campo RAZÃO SOCIAL corretamente");
+            document.dados.tx_rz.focus();
+            return false;
+        }
+        if(document.dados.tx_email.value == "" || document.dados.tx_email.value.indexOf("@")==-1 || document.dados.tx_email.value.indexOf(".") == -1){
+            formataMSG("Preencha campo EMAIL corretamente");
+            document.dados.tx_email.focus();
+            return false;
+        }
+        if(document.dados.tx_mensagem.value==""){
+            formataMSG("Preencha o campo MENSAGEM corretamente");
+            document.dados.tx_mensagem.focus();
+            return false;
+        }
+        if(document.dados.tx_mensagem.value.length < 50){
+            formataMSG("A MENSAGEM precisa ter mais de 50 caracteres");
+            document.dados.tx_mensagem.focus();
+            return false;
+        }
+        return true;
+    }
+
+    function formataMSG(txtMSG){
+        document.getElementById("msg").style.color = "red";
+        document.getElementById("msg").textContent = txtMSG;
+    }
+</script>
+</html>
