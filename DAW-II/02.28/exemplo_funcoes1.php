@@ -17,7 +17,7 @@
   }
 ?>
 
-<html>
+<html>3
   <head>
     <title>Média</title>
     <style>
