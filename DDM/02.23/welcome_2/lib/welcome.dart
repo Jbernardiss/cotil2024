@@ -1,9 +1,9 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last
 
 import 'package:flutter/material.dart';
 
-class Welcome extends StatelessWidget {
-  const Welcome({super.key});
+class WelcomePage extends StatelessWidget {
+  const WelcomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class Welcome extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(height: 30,),
-              SizedBox(height: 250, width: 250, child: Image.network("https://i.pinimg.com/736x/8f/12/9f/8f129f5f53c59e150832e1f1d6a0b701.jpg"),),
+              SizedBox(height: 250, width: 250, child: Image.network("https://pbs.twimg.com/media/GBFblNPXwAEc2Er.jpg:large"),),
               SizedBox(height: 30,),
               SizedBox(
                 height: 120, 
@@ -33,21 +33,12 @@ class Welcome extends StatelessWidget {
                   ),
                 ),
               ),
-              ListView(
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  ListTile(
-                    leading: Icon(Icons.chevron_right),
-                    title: Text("aaaa"),
-                  ),
+                  ElevatedButton(onPressed: () {}, child: Text("YZY STORE", style: TextStyle(color: Colors.white),), style: ElevatedButton.styleFrom(backgroundColor: Colors.black)),
+                  ElevatedButton(onPressed: () {}, child: Text("YZY APP", style: TextStyle(color: Colors.white),), style: ElevatedButton.styleFrom(backgroundColor: Colors.black),)
                 ],
-              ),
-              ElevatedButton(
-                onPressed: () => {},
-                style: ButtonStyle(
-                  backgroundColor: MaterialStatePropertyAll<Color>(Colors.white),
-                  foregroundColor: MaterialStatePropertyAll<Color>(Colors.black),
-                ), 
-                child: Text("YZY: SPLY"),
               )
             ],
           ),

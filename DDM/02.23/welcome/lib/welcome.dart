@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 
-class Welcome extends StatelessWidget {
-  const Welcome({super.key});
+class WelcomePage extends StatelessWidget {
+  const WelcomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -41,14 +41,6 @@ class Welcome extends StatelessWidget {
                   ),
                 ],
               ),
-              ElevatedButton(
-                onPressed: () => {},
-                style: ButtonStyle(
-                  backgroundColor: MaterialStatePropertyAll<Color>(Colors.white),
-                  foregroundColor: MaterialStatePropertyAll<Color>(Colors.black),
-                ), 
-                child: Text("YZY: SPLY"),
-              )
             ],
           ),
         ),
