@@ -42,12 +42,12 @@ class Welcome extends StatelessWidget {
                 ],
               ),
               ElevatedButton(
-                onPressed: () => {}, 
-                child: Text("YZY: SPLY"),
+                onPressed: () => {},
                 style: ButtonStyle(
                   backgroundColor: MaterialStatePropertyAll<Color>(Colors.white),
                   foregroundColor: MaterialStatePropertyAll<Color>(Colors.black),
-                ),
+                ), 
+                child: Text("YZY: SPLY"),
               )
             ],
           ),
