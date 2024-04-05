@@ -1,7 +1,8 @@
 <?php
     if($_SERVER["REQUEST_METHOD"] === 'GET') {
-        $situacao = "";
+        $situacao = ""; 
         $media = "";
+      
     } else if($_SERVER["REQUEST_METHOD"] === 'POST') {
 
         $n1 = $_POST["nota1"];
