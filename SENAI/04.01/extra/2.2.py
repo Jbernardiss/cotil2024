@@ -1,0 +1,1 @@
+print(f"Valor das Prestações: {float(input("Valor: ")) / int(input("Número de prestações: "))}") 

@@ -1,0 +1,1 @@
+print("De maior") if 2024 - int(input("Ano de nascimento")) >= 18 else print("De menor")
