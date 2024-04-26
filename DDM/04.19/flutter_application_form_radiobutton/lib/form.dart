@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_form_radiobutton/cidadao.dart';
 
 class MyForm extends StatefulWidget {
   const MyForm({super.key});
@@ -15,16 +16,28 @@ class _MyFormState extends State<MyForm> {
   TextEditingController professionController = TextEditingController();
   String classe = "";
   bool reinado = false;
-  bool republca = false;
+  bool republica = false;
   bool imperio = false;
   String imperador = "";
+
+  List<String> getFasesList() {
+    List<String> returnList = List.empty(growable: true);
+
+    reinado ? returnList.add("Reinado") : null;
+    republica ? returnList.add("República") : null;
+    imperio ? returnList.add("Império") : null;
+
+    return returnList;
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.yellow.shade100,
       appBar: AppBar(
         title: Text("Votação do melhor Imperador Romano"),
         centerTitle: true,
+        backgroundColor: Colors.amber.shade100,
       ),
       body: Container(
         padding: EdgeInsets.all(30),
@@ -62,7 +75,7 @@ class _MyFormState extends State<MyForm> {
                         setState(() {});
                       },
                     ),
-                    SizedBox(width: 40,),
+                    SizedBox(width: 10,),
                     Text("Plebeivs"),
                     Radio(
                       value: "Plebeivs",
@@ -72,7 +85,7 @@ class _MyFormState extends State<MyForm> {
                         setState(() {});
                       },
                     ),
-                    SizedBox(width: 40,),
+                    SizedBox(width: 10,),
                     Text("Servvs"),
                     Radio(
                       value: "Servvs",
@@ -101,9 +114,9 @@ class _MyFormState extends State<MyForm> {
                 CheckboxListTile(
                   title: Text("República"),
                   subtitle: Text("510 ~ 31 a.C."),
-                  value: republca, 
+                  value: republica, 
                   onChanged: (value) {
-                    republca = value!;
+                    republica = value!;
                     setState(() {});
                   }
                 ),
@@ -154,9 +167,15 @@ class _MyFormState extends State<MyForm> {
                 ),
                 Divider(thickness: 3, color: Colors.black,),
 
-                SizedBox(height: 50,),
+                SizedBox(height: 10,),
 
-                
+                ElevatedButton(
+                  onPressed: () {
+                    Cidadao cidadao = Cidadao(nameController.text, professionController.text, classe, getFasesList(), imperador);
+                    cidadao.printDados();
+                  }, 
+                  child: Text("Enviar")
+                )
               ],
             ),
           ),
