@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="static/common.css">
+    <link rel="stylesheet" href="static/index.css">
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="./">
+            <h1 class="homeLink">Usinagem Insana</h1>
+        </a>
+
+        <nav>
+            <a href="./producao.html">
+                <div class="linkBox">
+                    <p>Produção</p>
+                </div>
+            </a>
+
+            <a href="./engenharia.html">
+                <div class="linkBox">
+                    <p>Engenharia</p>
+                </div>
+            </a>
+
+            <a href="./qualidade.html">
+                <div class="linkBox">
+                    <p>Qualidade</p>
+                </div>
+            </a>
+
+            <a href="./expedicao.html">
+                <div class="linkBox">
+                    <p>Expedição</p>
+                </div>
+            </a>
+        </nav>
+    </div>
+
+    <main>
+        {% if title %}
+            <h1>{{ title }}</h1>
+                {% if video_embeded_iframe %}
+                    {{ video_embeded_iframe |safe }}
+                {% endif %}
+        {% endif %}
+    </main>
+
+</body>
+</html>
