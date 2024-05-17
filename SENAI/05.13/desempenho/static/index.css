@@ -1,0 +1,26 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&display=swap');
+
+main h1 {
+    font-family: "Bebas Neue", sans-serif;
+}
+
+main {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    font-family: "Radio Canada Big", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+
+
+    color: aliceblue;
+
+    width: 60%;
+
+    margin: auto;
+}
+
