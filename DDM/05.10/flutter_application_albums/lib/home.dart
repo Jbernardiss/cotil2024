@@ -13,22 +13,69 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.pink.shade100,
+      backgroundColor: Colors.grey.shade200,
       appBar: AppBar(
-        title: Text("Álbums"),
+        title: Text("Álbums", style: TextStyle(color: Colors.grey.shade200),),
         centerTitle: true,
-        backgroundColor: Colors.brown.shade900,
+        backgroundColor: Colors.indigo.shade700,
       ),
 
-      body: Center(
-        child: Column(
-          children: [
-            Image.asset('assets/images/vinyl.png'),
+      body: Container(
+        padding: EdgeInsets.all(15),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Image.asset('assets/images/vinyl.png'),
 
-            
-          ],
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  GestureDetector(
+                    child: Column(
+                      children: [
+                        Text("Ye\n"),
+                        Image.asset("assets/images/ye.jpg", width: 100,),
+                        
+                        Text("by Kanye West")
+                      ],
+                    ),
+                    onTap: () {
+                      Navigator.pushNamed(context, '/album/ye');
+                    },
+                  ),
+                  GestureDetector(
+                    child: Column(
+                      children: [
+                        Text("The Dark Side \nof The Moon", textAlign: TextAlign.center,),
+                        Image.asset("assets/images/tdsotm.png", width: 100,),
+                        
+                        Text("by Pink Floyd")
+                      ],
+                    ),
+                    onTap: () { },
+                  ),
+                  GestureDetector(
+                    child: Column(
+                      children: [
+                        Text("In Utero\n"),
+                        Image.asset("assets/images/inUtero.jpg", width: 100,),
+                        
+                        Text("by Nirvana")
+                      ],
+                    ),
+                    onTap: () { },
+                  )
+                ],
+              ),
+              SizedBox(height: 15,)
+            ],
+          ),
         ),
-      ),
+      ) 
+      
+      
     );
   }
 }
