@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
     Track("Scentless Apprentice", "3:48"),
     Track("Heart-Shaped Box", "4:41"),
     Track("Rape Me", "2:50"),
-    Track("Frances Farmer Will Have Her Revenge On Seattle", "4:10"),
+    Track("Frances Farmer Will Have Her Revenge \nOn Seattle", "4:10"),
     Track("Dumb", "2:32"),
     Track("Very Ape", "1:56"),
     Track("Milk It", "3:55"),
@@ -62,7 +62,9 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         '/': (context) => Home(),
-        '/album/ye': (context) =>AlbumExhibit(Album("Ye", "Kanye West", yeTracklist, 'assets/images/ye.jpg') ),
+        '/album/ye': (context) => AlbumExhibit(Album("Ye", "Kanye West", yeTracklist, 'assets/images/ye.jpg'), false ),
+        '/album/tdsotm': (context) => AlbumExhibit(Album("The Dark Side of the Moon", "Pink Floyd", tdsotmTracklist, 'assets/images/tdsotm.png'), true ),
+        '/album/inUtero': (context) => AlbumExhibit(Album("In Utero", "Nirvana", inUteroTracklist, 'assets/images/inUtero.jpg'), false ),
       },
     );
   }

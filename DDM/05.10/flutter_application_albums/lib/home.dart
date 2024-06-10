@@ -54,7 +54,9 @@ class _HomeState extends State<Home> {
                         Text("by Pink Floyd")
                       ],
                     ),
-                    onTap: () { },
+                    onTap: () {
+                      Navigator.pushNamed(context, '/album/tdsotm');
+                    },
                   ),
                   GestureDetector(
                     child: Column(
@@ -65,7 +67,9 @@ class _HomeState extends State<Home> {
                         Text("by Nirvana")
                       ],
                     ),
-                    onTap: () { },
+                    onTap: () {
+                      Navigator.pushNamed(context, '/album/inUtero');
+                    },
                   )
                 ],
               ),

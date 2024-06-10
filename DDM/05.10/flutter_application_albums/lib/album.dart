@@ -22,7 +22,7 @@ class Album {
 
   set author( value) => this._author = value;
 
-  get tracklist => this._tracklist;
+  List<Track> get tracklist => this._tracklist;
 
   set tracklist( value) => this._tracklist = value;
 
