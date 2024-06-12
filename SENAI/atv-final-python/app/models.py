@@ -6,8 +6,8 @@ from django.db import models
 class Equipment(models.Model):
 
     idNumber = models.IntegerField(),
-    local = models.CharField(max_length=100)
-    photo = models.ImageField(upload_to='images/')
+    local = models.TextField(),
+    image = models.ImageField(upload_to='uploads/')
 
     def __str__(self):
         return self.idNumber
