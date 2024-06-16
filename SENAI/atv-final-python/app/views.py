@@ -1,6 +1,5 @@
 
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.shortcuts import get_object_or_404, render, redirect
 from .models import Equipment
 from .forms import EquipmentForm
 
@@ -13,20 +12,41 @@ def index(request):
 def cadastro(request):
 
     if request.method == 'POST':
-
         form = EquipmentForm(request.POST, request.FILES)
 
         if form.is_valid():
-
             form.save()
-            return redirect('cadastro')
+            return redirect('consulta')
 
-        else:
-            form = EquipmentForm()
-            return render(request, 'cadastro.html', { 'form': form })
+    else:
+        form = EquipmentForm()
+    
+    return render(request, 'cadastro.html', { 'form': form })
             
+def edicao(request, id):
+    
+    equipment = get_object_or_404(Equipment, idNumber=id)
+    
+    if request.method == 'POST':
+        
+        if 'update' in request.POST:
+        
+            form = EquipmentForm(request.POST, request.FILES, instance=equipment)
+            if form.is_valid():
+                form.save()
+                return redirect('consulta')
+        
+        elif 'delete' in request.POST:
+            equipment.delete()
+            return redirect('consulta')
+
+    else:
+        form = EquipmentForm(instance=equipment)
+    
+    return render(request, 'edicao.html', { 'form': form })
+
 
 def consulta(request):
-    equipment = Equipment.objects.all()
-    return render(request, 'consulta.html', { 'equipment': equipment })
+    equipmentList = Equipment.objects.all()
+    return render(request, 'consulta.html', { 'equipmentList': equipmentList })
 

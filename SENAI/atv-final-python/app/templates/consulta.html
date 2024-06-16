@@ -1,0 +1,52 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confeccao</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'app/css/common.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'app/css/consulta.css' %}">
+
+</head>
+<body>
+
+    <div class="titleContainer">
+        <a href="{% url 'home' %}">Home</a>
+        <h1>Consulta</h1>
+        <a href="{% url 'cadastro' %}">Cadastro</a>
+    </div>
+
+    <div class="container">
+
+        <div class="insideContainer">
+
+            <h3>Lista de Equipamentos</h3>
+            <ul>
+                {% for equipment in equipmentList %}
+                    <li>
+                        <p>Número de Identificação: {{ equipment.idNumber }}</p>
+                        <p>Local: {{ equipment.local }}</p>
+                        <p>
+                            {% if equipment.image %}
+                                <img src="{{ equipment.image.url }}" alt="a" style="max-width: 200px; max-height: 200px;">
+                            {% else %}
+                                No Image
+                            {% endif %}
+                        </p>
+                        <p>
+                            <a href="{% url 'edicao' equipment.idNumber %}">Editar</a>
+                        </p>
+                    </li>
+
+                {% endfor %}
+            </ul>
+
+        </div>
+    </div>
+
+</body>
+</html>

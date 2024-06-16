@@ -1,0 +1,54 @@
+
+.container {
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  overflow-y: auto;
+
+}
+
+.insideContainer {
+  margin-top: 35%;
+
+  text-align: center;
+
+  width: 50%;
+}
+
+ul {
+
+
+  list-style: none;
+
+  background-color: azure;
+
+  padding: 0;
+
+  border: solid rgb(26, 146, 140);
+  border-width: 2px 4px;
+
+}
+
+li {
+  border: solid rgb(26, 146, 140);
+  border-width: 2px 0;
+
+  padding: 15px;
+}
+
+/*
+.insideContainer {
+
+  margin-top: 200px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  overflow-y: scroll;
+  max-height: 80vh;
+}
+*/

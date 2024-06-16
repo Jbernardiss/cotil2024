@@ -16,7 +16,7 @@
 
     <div class="titleContainer">
         <a href="{% url 'home' %}">Home</a>
-        <h1>Cadastro</h1>
+        <h1>Edição</h1>
         <a href="{% url 'consulta' %}">Consulta</a>
     </div>
 
@@ -24,7 +24,8 @@
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit">Cadastrar</button>
+            <button type="submit" name="update">Atualizar</button>
+            <button type="submit" name="delete">Deletar</button>
         </form>
     </div>
 

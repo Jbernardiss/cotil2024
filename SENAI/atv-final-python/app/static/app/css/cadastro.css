@@ -1,0 +1,25 @@
+
+form {
+
+    background-color: azure;
+
+    padding: 15px 60px;
+
+
+
+    border: solid rgb(26, 146, 140);
+    border-width: 4px;
+
+    width: 40%;
+
+    
+}
+
+form p {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    max-width: 50%;
+}

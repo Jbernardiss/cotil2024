@@ -15,16 +15,18 @@
 <body>
 
     <div class="titleContainer">
-        <h1>Bem vindo de volta</h1>
+        <a href="{% url 'cadastro' %}">Cadastro</a>
+        <h1>Confecção</h1>
+        <a href="{% url 'consulta' %}">Consulta</a>
     </div>
 
     <div class="container">
-        <a href="about:blank">
+        <a href="{% url 'cadastro' %}">
             <div class="link">
                 Cadastro de Equipamento
             </div>
         </a>
-        <a href="about:blank">
+        <a href="{% url 'consulta' %}">
             <div class="link">
                 Consulta de Equipamento
             </div>

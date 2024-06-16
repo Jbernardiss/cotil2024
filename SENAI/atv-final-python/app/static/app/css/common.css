@@ -10,7 +10,7 @@ body {
     justify-content: center;
     align-items: center;
 
-    background-image: url(/app/static/app/images/background.jpg);
+    background-image: url(../images/background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 
@@ -19,13 +19,25 @@ body {
     color: rgb(26, 146, 140);
 }
 
-div.titleContainer {
+.titleContainer {
+
     width: 100%;
 
-
     background-color: azure;
-    text-align: center;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 
+}
+
+.titleContainer a {
+    margin: 0px 15px;
+}
+
+.titleContainer a:hover {
+    text-decoration: underline;
 }
 
 div.container {
@@ -40,4 +52,27 @@ div.container {
 
     
     backdrop-filter: blur(8px);
+}
+
+div.link {
+    font-size: 1.3em;
+    padding: 1em;
+
+    background-color: azure;
+
+    border: solid rgb(26, 146, 140) 2px;
+    border-radius: 10px;
+}
+
+a:link {
+    text-decoration: none;
+    color: rgb(26, 146, 140);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:visited {
+    color: rgb(26, 146, 140);
 }
