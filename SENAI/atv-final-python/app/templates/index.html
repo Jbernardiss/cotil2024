@@ -8,28 +8,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confeccao</title>
 
-    <link rel="stylesheet" type="text/css" href="{% static 'app/css/common.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'app/css/index.css' %}">
 
 </head>
 <body>
 
     <div class="titleContainer">
-        <a href="{% url 'cadastro' %}">Cadastro</a>
         <h1>Confecção</h1>
-        <a href="{% url 'consulta' %}">Consulta</a>
     </div>
 
     <div class="container">
         <a href="{% url 'cadastro' %}">
-            <div class="link">
+            <button>
                 Cadastro de Equipamento
-            </div>
+            </button>
         </a>
         <a href="{% url 'consulta' %}">
-            <div class="link">
+            <button>
                 Consulta de Equipamento
-            </div>
+            </button>
         </a>
     </div>
 
