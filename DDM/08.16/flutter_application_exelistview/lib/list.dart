@@ -27,19 +27,22 @@ class _ListaState extends State<Lista> {
       body: Center(
         child: Column(
           children: [
-            ListView.separated(
-              shrinkWrap: true,
-              separatorBuilder: (context, index) => Divider(thickness: 3,),
-              itemCount: 4,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text(listaAl[index].nome),
-                  subtitle: Text(listaAl[index].ra.toString()),
-                  trailing: Text(index.toString()),
-                  leading: CircleAvatar(child: Text(listaAl[index].nome[0]),)
-                );
-              },
+            Expanded(
+              child: ListView.separated(
+                shrinkWrap: true,
+                separatorBuilder: (context, index) => Divider(thickness: 3,),
+                itemCount: listaAl.length,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    title: Text(listaAl[index].nome),
+                    subtitle: Text(listaAl[index].ra.toString()),
+                    trailing: Text(index.toString()),
+                    leading: CircleAvatar(child: Text(listaAl[index].nome[0]),)
+                  );
+                },
+              ),
             ),
+            
             ElevatedButton(onPressed: () {
 
             }, child: Text("Voltar"))
