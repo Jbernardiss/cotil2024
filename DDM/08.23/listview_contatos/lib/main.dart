@@ -11,7 +11,6 @@ void main() {
 
 class MyApp extends StatelessWidget {
   MyApp({super.key});
-  
   List<Contato> listaContatos = [];
   // This widget is the root of your application.
   @override
