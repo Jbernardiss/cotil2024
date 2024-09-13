@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class People {
 
   String name = "";
@@ -15,7 +17,7 @@ class People {
           hairColor = json['hair_color'],
           skinColor = json['skin_color']
           ;
-
+          
   String get getName => this.name;
 
   set setName(String name) => this.name = name;
