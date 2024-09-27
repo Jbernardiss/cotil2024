@@ -14,16 +14,37 @@
 
         try {
             $stmt -> execute();
-
+            echo("<form method='post'>");
             echo "<table border='1px' cellspacing='0'>";
             echo"<tr>";
+            echo("<th><th>");
             echo"<th>RA</th>";
             echo"<th>NOME</th>";
             echo"<th>Curso</th>";
             echo"<th colspan=2></th>";
             echo"</tr>";
+            
+            $stmt->execute();
 
-        } 
+            while($row = $stmt->fetch()){
+                echo("<tr>");
+                echo("<td><input type='radio' name='raAluno'>" . $row["ra"] . "</td>");
+                echo("<td>" . $row["nome"] . "</td>");
+                echo("<td>" . $row["curso"] . "</td>");
+
+                echo("</tr>");
+            }
+
+            echo("</table><br>
+            
+                <button> type='submit' formaction='remove.php'>Remover</button>
+                <button> type='submit' formaction='edicao.php'>Editar Aluno</button>
+            ");
+        } catch(PDOException $ex){
+            echo("Erroe " . $ex->getMessage());
+        }
+
+        $pdo = null;
     }
 ?>
 

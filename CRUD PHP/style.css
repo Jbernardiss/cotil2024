@@ -1,0 +1,33 @@
+body{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.box{
+    border: 2px black solid;
+    padding: 20px;
+}
+
+.aviso{
+    color: red;
+}
+
+.sucesso{
+    color: green;
+}
+
+.formCadastro{
+    border: 2px solid black;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+form{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
