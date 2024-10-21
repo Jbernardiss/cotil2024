@@ -39,6 +39,7 @@
              echo "<th>Nome</th>";
              echo "<th>Valor</th>";
              echo "<th>Fornecedor</th>";
+             echo("<th>Foto</th>");
              echo "</tr>";
 
              while ($row = $stmt->fetch()) {
@@ -49,8 +50,13 @@
                  echo "<td>" . $row['nome'] . "</td>";
                  echo "<td>" . $row['valor'] . "</td>";
                  echo "<td>" . $row['fornecedor'] . "</td>";
+                 if($row["arquivoFoto"] == null){
+                    echo("<td align='center'>-</td>");
+                 }else{
+                    echo("<td align='center'><img src=".$row['arquivoFoto'] ."  width='50px'></td>");
+                 }
                  echo "</tr>";
-             }
+            }
 
              echo "</table><br>
                        

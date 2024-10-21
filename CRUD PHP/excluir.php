@@ -21,9 +21,20 @@ if (!isset($_POST["idproduto"])) {
     $id = $_POST["idproduto"];
 
     try {
+
+        $stmt = $pdo->prepare('SELECT arquivoFoto FROM alunos WHERE ra = :ra');
+        $stms -> bindParam(':ra', $ra);
+        $stmt -> execute();
+        $row = $stmt -> fetch();
+        $arquivoFoto = $row['arquivoFoto'];
+
         $stmt = $pdo->prepare('delete from produto where idproduto = :id');
         $stmt->bindParam(':id', $id);
         $stmt->execute();
+
+        if($arquivoFoto != null){
+            unlink($arquivoFoto);
+        }
 
         echo "Produto de id $id excluído com sucesso!";
 

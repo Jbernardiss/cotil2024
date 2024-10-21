@@ -23,7 +23,8 @@
             <option value="Plasticos LTDA">Plasticos LTDA</option>
         </select><br><br>
 
-        <input type="image" src="" alt="">
+        Foto: <br>
+        <input type="image" src="" alt="asdfas">
 
         <input type="submit" value="Enviar">
     </form>
@@ -51,14 +52,10 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
         if((trim($nome) == "") || (trim($valor) == "")){
             echo("<h2 class='aviso'>Favor, preencha todos os campos!<h2>");
         } else if(($nomeFoto != "") && (!preg_match('/^image\/(jpeg|png|gif)$/', $tipoFoto))) {
-
             echo "<span id='error'>Imagem inválida!</span>";
         } else if(($nomeFoto != "") && ($tamanhoFoto > TAMANHO_MAXIMO)) {
-
             echo "<span id='error'>A imagem deve possuir no máximo 2MB!</span>"; 
-
         } else { 
-
             include("conexaoBanco.php");
             define("TAMANHO_MAXIMO", (2 * 1024 * 1024));
 
@@ -71,10 +68,17 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
                 $rows = $stmt->rowCount();
 
                 if ($rows <= 0) {
-                    $stmt = $pdo->prepare("insert into produto (nome, valor, fornecedor) values(:nome, :valor, :fornecedor)");
+                    if(($nomeFoto != "") && move_uploaded_file($_FILES['foto']['tmp_name'], $uploaddir . $novoNomeFoto)){
+                        $uploadFile = $uploaddir . $novoNomeFoto;
+                    }else{
+                        $uploadFile = null;
+                        echo("Sem upload de foto");
+                    }
+                    $stmt = $pdo->prepare("insert into produto (nome, valor, fornecedor, arquivoFoto) values(:nome, :valor, :fornecedor, :foto)");
                     $stmt->bindParam(':nome', $nome);
                     $stmt->bindParam(':valor', $valor);
                     $stmt->bindParam(':fornecedor', $fornecedor);
+                    $stmt->bindParam(":foto", $uploadFile);
                     $stmt->execute();
 
                     echo "<h2 class='sucesso'>Produto Cadastrado!</h2>";
